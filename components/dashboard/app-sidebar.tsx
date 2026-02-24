@@ -12,6 +12,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import {
+  ArrowDownIcon,
   ChartPieIcon,
   ChartSplineIcon,
   CheckCheckIcon,
@@ -22,6 +23,8 @@ import {
   LaptopIcon,
   LayoutListIcon,
   MonitorCogIcon,
+  OctagonIcon,
+  OctagonXIcon,
   PlusIcon,
   ScanQrCodeIcon,
   SquareCheckBigIcon,
@@ -35,7 +38,7 @@ const data = [
   { icon: <ScanQrCodeIcon />, label: "Scan QR" },
   { icon: <CopyPlusIcon />, label: "Dodaj komputer" },
   { icon: <ChartSplineIcon />, label: "Statystyki", url: "stats" },
-  { icon: <LayoutListIcon />, label: "Sprzęt" },
+  { icon: <LayoutListIcon />, label: "Sprzęt", url:"equipment" },
   { icon: <UserRoundPlusIcon />, label: "Dodaj pracownika" },
 ];
 
@@ -67,7 +70,7 @@ export function AppSidebar() {
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>To działa</SidebarGroupLabel>
+          <SidebarGroupLabel className="flex gap-4">TO DZIAŁA <ArrowDownIcon/></SidebarGroupLabel>
           <SidebarGroupAction>
             <SquareCheckBigIcon color="green" />{" "}
             <span className="sr-only">Add Project</span>
@@ -81,10 +84,18 @@ export function AppSidebar() {
                 </SidebarMenuButton>
               </Link>
             </SidebarMenuItem>
+            <SidebarMenuItem>
+              <Link href={`/dashboard/${data[3].url}`}>
+                <SidebarMenuButton className="cursor-pointer">
+                  {data[3].icon} {data[3].label}
+                  <SidebarMenuBadge>OK</SidebarMenuBadge>
+                </SidebarMenuButton>
+              </Link>
+            </SidebarMenuItem>
           </SidebarMenu>
         </SidebarGroup>
         <SidebarGroup>
-          <SidebarGroupLabel>SidebarGroupLabel</SidebarGroupLabel>
+          <SidebarGroupLabel className="flex gap-4">To nie działa <OctagonXIcon color="red"/></SidebarGroupLabel>
           <SidebarMenu>
             {data.map((el, index) => (
               <SidebarMenuItem key={index}>
