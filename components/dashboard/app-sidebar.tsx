@@ -51,7 +51,7 @@ export function AppSidebar() {
                 asChild
                 className="group-data-[collapsible=icon]:justify-center"
               >
-                <a href="#">
+                <div>
                   <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                     <MonitorCogIcon className="size-4" />
                   </div>
@@ -59,7 +59,7 @@ export function AppSidebar() {
                     <span className="truncate font-semibold">Rent-IT</span>
                     <span className="truncate text-xs">Najem sprzętu IT</span>
                   </div>
-                </a>
+                </div>
               </SidebarMenuButton>
             </Link>
           </SidebarMenuItem>
