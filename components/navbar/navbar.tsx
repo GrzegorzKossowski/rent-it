@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import Logo from "@/components/navbar/logo";
 import { ThemeToggle } from "@/components/navbar/theme-toggle";
 import { NavMenu } from "@/components/navbar/nav-menu";
+import { NavigationSheet } from "./navigation-sheet";
+import { LogInIcon } from "lucide-react";
 
 const Navbar = () => {
   return (
@@ -11,19 +13,24 @@ const Navbar = () => {
         <Logo />
 
         {/* Desktop Menu */}
-        <NavMenu className="hidden md:block" />
+        {/* Desktop navigation menu */}
+        <div className="hidden md:flex">
+          <NavMenu />
+        </div>
 
         <div className="flex items-center gap-3">
           <ThemeToggle />
-          <Button variant="outline" className="hidden sm:inline-flex">
-            Sign In
+          <Button variant="outline" className="hidden md:inline-flex">
+            Zaloguj
+          </Button>
+          <Button variant="outline" className="inline-flex md:hidden">
+            <LogInIcon />
           </Button>
           <Button className="hidden xs:inline-flex">Get Started</Button>
 
           {/* Mobile Menu */}
           <div className="md:hidden">
-            {/* <NavigationSheet /> */}
-            Mobile menu
+            <NavigationSheet />
           </div>
         </div>
       </div>

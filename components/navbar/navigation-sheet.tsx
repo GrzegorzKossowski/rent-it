@@ -15,12 +15,12 @@ export const NavigationSheet = () => {
       </SheetTrigger>
       <SheetContent>
         <Logo />
-        <NavMenu orientation="vertical" className="mt-12" />
+        {/* <NavMenu orientation="vertical" className="mt-12" /> */}
         <div className="mt-8 space-y-4">
-          <Button variant="outline" className="w-full sm:hidden">
-            Sign In
-          </Button>
-          <Button className="w-full xs:hidden">Get Started</Button>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
+          dolores eos temporibus saepe dolore quasi, expedita, culpa sed
+          mollitia officia quis? Aperiam natus illo rem modi ea ipsum voluptas
+          quis.
         </div>
       </SheetContent>
     </Sheet>

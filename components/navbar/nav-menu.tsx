@@ -1,10 +1,55 @@
-import React, { PropsWithChildren } from "react";
+import React from "react";
+import Link from "next/link";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
+import { cn } from "@/lib/utils";
 
-type Props = {
-  className: string;
-  orientation?: string;
-} & PropsWithChildren;
-
-export const NavMenu = ({ children, className, orientation }: Props) => {
-  return <div>NavMenu</div>;
+export const NavMenu = ({
+  className,
+  ...props
+}: React.ComponentProps<typeof NavigationMenu>) => {
+  const { orientation } = props;
+  const triggerStyle = cn(navigationMenuTriggerStyle(), {
+    "text-xl": orientation === "vertical",
+  });
+  return (
+    <NavigationMenu viewport={false} {...props}>
+      <NavigationMenuList
+        className={cn({
+          "flex-col items-start gap-4": orientation === "vertical",
+        })}
+      >
+        <NavigationMenuItem>
+          <NavigationMenuLink asChild className={triggerStyle}>
+            <Link href="/#features">Features</Link>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuLink asChild className={triggerStyle}>
+            <Link href="/#pricing">Oferta</Link>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuLink asChild className={triggerStyle}>
+            <Link href="/#team">Zespół</Link>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuLink asChild className={triggerStyle}>
+            <Link href="/#testimonials">Mówią o nas</Link>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuLink asChild className={triggerStyle}>
+            <Link href="/#contact">Kontakt</Link>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
+  );
 };

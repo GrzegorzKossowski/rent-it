@@ -80,6 +80,7 @@ function SheetContent({
             <span className="sr-only">Close</span>
           </SheetPrimitive.Close>
         )}
+        <SheetPrimitive.Title></SheetPrimitive.Title>
       </SheetPrimitive.Content>
     </SheetPortal>
   )
